@@ -1,7 +1,132 @@
-body{
+/* body{
     display: flex;
     align-items: center;
     background-color: black;
     color: red;
     font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+
+
+
+
+:root{
+  --bg: #0d0f12;
+  --text: #e6e6e6;
+  --muted: #b8b8b8;
+  --accent: #ff3b30; /* red accent */
+  --chip: #1a1f26;
+  --chip-border: #2a323d;
+  --btn-bg: #151a20;
+  --wrap: 1100px;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+}
+
+/* Layout */
+.wrap{
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Hero */
+.hero{
+  min-height: 100vh;           
+  display: grid;
+  align-items: center;
+  background: radial-gradient(1200px 600px at 5% 5%, #121720 0%, var(--bg) 55%) no-repeat;
+}
+
+.hero h1{
+  margin: 0 0 6px;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(255,59,48,0.18);
+}
+
+.role{
+  margin: 0 0 16px;
+  font-size: clamp(18px, 2.5vw, 22px);
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.lead{
+  max-width: 62ch;
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+/* Highlights (chips) */
+.highlights{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.highlights li{
+  padding: 8px 12px;
+  border: 1px solid var(--chip-border);
+  background: var(--chip);
+  border-radius: 999px;
+  font-size: 14px;
+  color: #d8d8d8;
+}
+
+/* Buttons */
+.actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  border: 1px solid #2a323d;
+  background: var(--btn-bg);
+  color: var(--text);
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+.btn.primary{
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn.primary:hover{
+  filter: brightness(1.05);
+}
+
+.btn.ghost{
+  background: transparent;
+}
+
+/* Small screens tweaks */
+@media (max-width: 540px){
+  .lead{ font-size: 15px; }
 }
